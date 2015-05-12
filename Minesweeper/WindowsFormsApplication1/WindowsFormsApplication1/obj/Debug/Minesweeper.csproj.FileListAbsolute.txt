@@ -35,3 +35,4 @@ C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\Window
 \\ad.fi.muni.cz\DFS\home\xmatta\_profile\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.StatsForm.resources
 \\ad.fi.muni.cz\DFS\home\xmatta\_profile\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
 C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.Gameplay.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.Sounds.resources

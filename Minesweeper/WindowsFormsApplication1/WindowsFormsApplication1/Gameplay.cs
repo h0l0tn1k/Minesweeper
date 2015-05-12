@@ -6,15 +6,21 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Media;
 
 namespace Minesweeper
 {
+    public delegate void Finishgame(int x);
     public partial class Gameplay : Form
     {
-        private Timer tim;
+        public Finishgame NextLevel { get; set; }
+        public Finishgame QuitGame { get; set; }
+        public Form Parent { get; set; }
+        private System.Windows.Forms.Timer tim;
         private Stopwatch timer;
         private bool init;
         private int bombsCount;
@@ -24,17 +30,28 @@ namespace Minesweeper
         private List<Field> hidden = new List<Field> { Field.Bomb, Field.Gold,Field.Hearth};
         private int[,] numbersBomb;
         private List<Point> flags;
+        private int level;
+        public BattleField Battlefield { get { return battlefield; }  }
 
-        public Gameplay(Field[,] field,Player pl)
+        public Gameplay(Field[,] field,int width,int height,ref Player pl,int lvl)
         {
             InitializeComponent();
-            battlefield = new BattleField(433, 433, field);
-            numbersBomb = new int[10, 10];
+            level = lvl;
+            
+            label1.Text = "Level " + (level+1).ToString();
+            battlefield = new BattleField(width,height, field);
+            numbersBomb = new int[height,width];
+            visitedRectangles = new bool[height,width];
+            timer = new Stopwatch();
+            tim = new System.Windows.Forms.Timer();
             flags = new List<Point>();
+
             battlefield.Player = pl;
             bombsCount = 0;
-            visitedRectangles = new bool[10, 10];
-            visitedRectangles[pl.Y, pl.X] = true;
+            tim.Tick += tim_Tick;
+            tim.Tick += resolver_Tick;
+            tim.Interval = 500;
+            lblTime.Text = "Time : 00:00";
             Images[(int)Field.Bomb] = Pictures.bomb;
             Images[(int)Field.Nothing] = Pictures.ground;
             Images[(int)Field.Hearth] = Pictures.hearth;
@@ -44,13 +61,33 @@ namespace Minesweeper
             Images[(int)Field.Empty] = Pictures.empteyyy;
             Images[(int)Field.Gold] = Pictures.coin;
             Images[(int)Field.Flag] = Pictures.flag;
+
             setBombNumbers();
-            timer = new Stopwatch();
-            tim = new Timer();
-            tim.Tick += tim_Tick;
-            tim.Interval = 1000;
-            lblTime.Text = "Time : 00:00";
             init = true;
+        }
+
+        void resolver_Tick(object sender, EventArgs e)
+        {
+            if (battlefield.Player.Life <= 0)
+            {
+                tim.Tick -= resolver_Tick;
+                MessageBox.Show("You are dead!");
+                Parent.Show();
+                this.Hide();
+                QuitGame(0);
+                return;
+            }
+            bool res = isFinishedd();
+            lblDebug.Text = "Finished : " + res.ToString();
+            if (res)
+            {
+                tim.Tick -= resolver_Tick;
+                MessageBox.Show("You WON!!\n" + "Elapsed time: " + timer.Elapsed.ToString("mm\\:ss"));
+                Parent.Show();
+                this.Hide();
+                NextLevel(++level);
+            }
+
         }
 
         void tim_Tick(object sender, EventArgs e)
@@ -60,23 +97,25 @@ namespace Minesweeper
 
         private void setBombNumbers()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < battlefield.Height; i++)
             {
-                for (int x = 0; x < 10; x++)
+                for (int x = 0; x < battlefield.Width; x++)
                 {
                     numbersBomb[i, x] = 0;
                 }
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < battlefield.Height; i++)
             {
-                for (int x = 0; x < 10; x++)
+                for (int x = 0; x < battlefield.Width; x++)
                 {
                     if (battlefield.Field[i, x] == Field.Bomb)
                     {
                         bombsCount++;
                         addToSurroundings(x, i);
                     }
+                    if (battlefield.Field[i, x] == Field.Empty)
+                        visitedRectangles[i, x] = true;
                 }
 
             }
@@ -84,8 +123,8 @@ namespace Minesweeper
 
         private void addToSurroundings(int x,int y)
         {
-            bool[] arr = new bool[10];
-            for (int i = 0; i < 10; i++)
+            bool[] arr = new bool[9];
+            for (int i = 0; i < 9; i++)
             {
                 arr[i] = true;
             }
@@ -113,7 +152,7 @@ namespace Minesweeper
             }
 
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (arr[i])
                 {
@@ -177,16 +216,12 @@ namespace Minesweeper
             e.Graphics.DrawImage(Pictures.battlefield, 157, 37,550,550);
 
 
-            for (int y = 0; y < 10; y++)
+            for (int y = 0; y < battlefield.Height; y++)
             {
-                for (int x = 0; x < 10; x++)
+                for (int x = 0; x < battlefield.Width; x++)
                 {
                     Point p = new Point(221+ x*43,93+y*43);
-                    if (x == battlefield.Player.X && y == battlefield.Player.Y) { 
-                        e.Graphics.DrawImage(Images[(int)Field.Player], p.X, p.Y, 43, 43);
-                        continue;
-                    }
-
+                    ///Draw Numbers
                     if (visitedRectangles[y, x] && numbersBomb[y, x] > 0 && battlefield.Field[y, x] != Field.Gold && battlefield.Field[y, x] != Field.Hearth && battlefield.Field[y, x] != Field.Finish
                         && battlefield.Field[y, x] != Field.Stone)
                     {
@@ -194,6 +229,7 @@ namespace Minesweeper
                         continue;
                     }
 
+                    ///if flaged, draw flag
                     if (flags.Contains(new Point(x,y)))
                     {
                         e.Graphics.DrawImage(Images[(int)Field.Flag], p.X, p.Y, 43, 43);
@@ -202,6 +238,13 @@ namespace Minesweeper
                     {
                         if (hidden.Any(z => z == battlefield.Field[y, x]) && !visitedRectangles[y, x])
                         {
+                            ///
+                            /// DEBUG
+                            ///
+
+                            //e.Graphics.DrawImage(Images[(int)battlefield.Field[y, x]], p.X, p.Y, 43, 43);
+
+                            /// cover
                             e.Graphics.DrawImage(Images[(int)Field.Nothing], p.X, p.Y, 43, 43);
                         }
                         else
@@ -214,7 +257,7 @@ namespace Minesweeper
                     }
                 }
             }
-
+            
             if (init)
             {
                 tim.Enabled = true;
@@ -229,9 +272,9 @@ namespace Minesweeper
             int x = ((MouseEventArgs)e).X - 221;
             int y = ((MouseEventArgs)e).Y - 90;
             
-            if (x > 430 || x < 0)
+            if (x > 43*battlefield.Width || x < 0)
                 return;
-            if (y > 430 || y < 0)
+            if (y > 43*battlefield.Height || y < 0)
                 return;
             int cX = (int)x / 43;
             int cY = (int)y / 43;
@@ -241,24 +284,44 @@ namespace Minesweeper
             {
                 if (flags.Contains(p))
                     return;
-                if (battlefield.Field[cY, cX] == Field.Bomb && !visitedRectangles[cY, cX]) { 
+
+                if (battlefield.Field[cY, cX] == Field.Hearth && battlefield.Player.Life < 3 )
+                {
+                    battlefield.Field[cY, cX] = Field.Empty;
+                    battlefield.Player.Life++;
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Sounds.health);
+                    player.Play();
+                }
+                if (battlefield.Field[cY, cX] == Field.Gold)
+                {
+                    battlefield.Field[cY, cX] = Field.Empty;
+                    battlefield.Player.Coins++;
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Sounds.coin);
+                    player.Play();
+                }
+                if (battlefield.Field[cY, cX] == Field.Bomb && !visitedRectangles[cY, cX])
+                {
+                    visitedRectangles[cY, cX] = true;
                     battlefield.Player.Life--;
                     bombsCount--;
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Sounds.bomb);
+                    player.Play();
+                    resolver_Tick(this, EventArgs.Empty);
                 }
-                if (battlefield.Field[cY, cX] == Field.Hearth && battlefield.Player.Life < 3 && !visitedRectangles[cY,cX])
-                    battlefield.Player.Life++;
-                if (battlefield.Field[cY, cX] == Field.Gold && !visitedRectangles[cY, cX])
-                    battlefield.Player.Coins++;
-                visitedRectangles[cY, cX] = true;
+                else
+                {
+                    visitedRectangles[cY, cX] = reveal(cX, cY);
+                }
             }
             if (((MouseEventArgs)e).Button == System.Windows.Forms.MouseButtons.Right)
             {
                 if ( (battlefield.Field[cY, cX] == Field.Stone || battlefield.Field[cY, cX] == Field.Empty) 
                     ||( visitedRectangles[cY,cX]))
                 { 
-                
+                    //do not flag other objects
                 }
                 else if(flags.Contains(p)){
+                    //remove flag
                     flags.Remove(p);
                     bombsCount++;
                 }
@@ -270,8 +333,56 @@ namespace Minesweeper
                 }
             }
             Invalidate();
-            
         }
-        
+
+        private bool reveal(int x,int y)
+        {
+            if (x < 0 || y < 0 || x > 9 || y > 9)
+                return false;
+            
+            if (visitedRectangles[y, x])
+                return true;
+            if (numbersBomb[y, x] > 0)
+            {
+                visitedRectangles[y, x] = true;
+                return true;
+            }
+
+            if (battlefield.Field[y, x] == Field.Nothing || battlefield.Field[y,x] == Field.Hearth
+                || battlefield.Field[y, x] == Field.Gold || battlefield.Field[y,x] == Field.Empty)
+            {
+                visitedRectangles[y, x] = true;
+            }
+            else
+                return false;
+            reveal(x - 1, y);
+            reveal(x + 1, y);
+            reveal(x, y - 1);
+            reveal(x, y + 1);
+
+            ///diagonaly
+            reveal(x + 1, y - 1);
+            reveal(x + 1, y - 1);
+            reveal(x - 1, y + 1);
+            reveal(x - 1, y + 1);
+            return true;
+        }
+
+        private bool isFinishedd()
+        {
+            for (int yy = 0; yy < battlefield.Height; yy++)
+            {
+                for (int xx = 0; xx < battlefield.Width; xx++)
+                {
+                    if (battlefield.Field[yy, xx] == Field.Empty || battlefield.Field[yy, xx] == Field.Nothing)
+                    {
+                        if (!visitedRectangles[yy, xx])
+                            return false;
+                    }
+                }
+            }
+            return true;
+        }
+
     }
 }

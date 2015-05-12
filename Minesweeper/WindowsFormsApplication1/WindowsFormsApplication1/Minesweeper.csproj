@@ -87,6 +87,11 @@
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sounds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sounds.resx</DependentUpon>
+    </Compile>
     <Compile Include="StatsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +121,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sounds.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sounds.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="StatsForm.resx">
       <DependentUpon>StatsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +148,8 @@
     <None Include="Resources\Exit.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Gran_Turismo_-_PSP_-_Freeland_-_Do_You.wav" />
+    <None Include="Resources\health.wav" />
     <None Include="Resources\flag.png" />
     <None Include="Resources\finish.png" />
     <None Include="Resources\player.png" />
@@ -160,6 +171,8 @@
     <None Include="Resources\empteyyy.png" />
     <None Include="Resources\coin.png" />
     <None Include="Resources\brown.png" />
+    <None Include="Resources\coin.wav" />
+    <None Include="Resources\bomb.wav" />
     <Content Include="Resources\ExitOnClick.png" />
     <None Include="Resources\Stats.png" />
     <None Include="Resources\NewGame.png" />

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace Minesweeper
     public partial class MainScreen : Form
     {
         internal static Rectangle UserScreen = Screen.PrimaryScreen.Bounds;
+        private Level[] lvl = new Level[] { new Level1(), new Level2(), new Level3() };
+        Player pl = new Player(3);
         public MainScreen()
         {
             InitializeComponent();
@@ -32,14 +35,16 @@ namespace Minesweeper
 
         private void newgame(object sender, EventArgs e)
         {
-            startGame();
+            startGame(0);
         }
 
-        private void startGame()
+        private void startGame(int i)
         {
-            Level lvl = new Level1();
-            Player pl = new Player(0, 0, 3);
-            Gameplay game = new Gameplay(lvl.Map,pl);
+            Gameplay game = new Gameplay(lvl[i].Map, lvl[i].Width, lvl[i].Height, ref pl,i);
+            game.Parent = this;
+            game.NextLevel = new Finishgame(startGame);
+            game.QuitGame = new Finishgame(playerDead);
+
             this.Hide();
             game.Show();
         }
@@ -51,20 +56,17 @@ namespace Minesweeper
             stats.Show();
         }
 
+        private void playerDead(int z)
+        { 
+            ///Update Database
+        }
+
+
         private void setButtons()
         {
             menuLayout1.NewGame.Click += new System.EventHandler(this.newgame);
             menuLayout1.Exit.Click += new System.EventHandler(CloseForm);
             menuLayout1.Stats.Click += new System.EventHandler(stats);
-            this.menuLayout1.Location = new System.Drawing.Point((UserScreen.Width / 2) - (menuLayout1.Width / 2), (UserScreen.Height / 2) - (menuLayout1.Height / 2));
-            this.btnCloseApp.Location = new System.Drawing.Point(UserScreen.Width - 5 - btnCloseApp.Width, 0);
-            this.btnMinApp.Location = new System.Drawing.Point(UserScreen.Width - btnCloseApp.Width - btnMinApp.Width - 8, -5);
-            this.pictureBoxGoldCoinSack.Location = new System.Drawing.Point(UserScreen.Width - pictureBoxGoldCoinSack.Width ,UserScreen.Height - pictureBoxGoldCoinSack.Height -50);
-            this.pictureBox5.Location = new System.Drawing.Point((UserScreen.Width-btnCloseApp.Width-btnMinApp.Width - pictureBox5.Width- 10),10);
-            btnCloseApp.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnCloseApp.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnMinApp.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnMinApp.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
     }

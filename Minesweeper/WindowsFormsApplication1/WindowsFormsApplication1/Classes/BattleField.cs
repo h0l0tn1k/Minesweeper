@@ -24,21 +24,18 @@ namespace Minesweeper
 
 
 
-    class BattleField
+    public class BattleField
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
         public  Player Player { get; set; }
-
-        /// <summary>
-        ///             10 X 10
-        /// </summary>
         public Field[,] Field { get; set; }
 
         public BattleField(int width,int height,Field[,] field)
         {
-            Player = new Player(0, 0, 3);
             Field = field;
+            Width = width;
+            Height = height;
         }
 
     }
