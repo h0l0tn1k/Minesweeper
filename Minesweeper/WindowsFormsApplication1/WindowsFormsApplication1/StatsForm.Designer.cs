@@ -28,28 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCloseApp = new System.Windows.Forms.Button();
             this.pictureBoxLocal = new System.Windows.Forms.PictureBox();
             this.pictureBoxGlobal = new System.Windows.Forms.PictureBox();
             this.pictureBoxSplitter = new System.Windows.Forms.PictureBox();
+            this.lblStatsLocal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGlobal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitter)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnCloseApp
-            // 
-            this.btnCloseApp.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloseApp.BackgroundImage = global::Minesweeper.Properties.Resources.Close;
-            this.btnCloseApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCloseApp.FlatAppearance.BorderSize = 0;
-            this.btnCloseApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseApp.Location = new System.Drawing.Point(1124, 12);
-            this.btnCloseApp.Name = "btnCloseApp";
-            this.btnCloseApp.Size = new System.Drawing.Size(43, 46);
-            this.btnCloseApp.TabIndex = 4;
-            this.btnCloseApp.UseVisualStyleBackColor = false;
-            this.btnCloseApp.Click += new System.EventHandler(this.CloseStatsForm);
             // 
             // pictureBoxLocal
             // 
@@ -86,36 +72,47 @@
             this.pictureBoxSplitter.TabStop = false;
             this.pictureBoxSplitter.WaitOnLoad = true;
             // 
+            // lblStatsLocal
+            // 
+            this.lblStatsLocal.AutoSize = true;
+            this.lblStatsLocal.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatsLocal.Font = new System.Drawing.Font("Eras Bold ITC", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatsLocal.Location = new System.Drawing.Point(127, 208);
+            this.lblStatsLocal.Name = "lblStatsLocal";
+            this.lblStatsLocal.Size = new System.Drawing.Size(0, 28);
+            this.lblStatsLocal.TabIndex = 10;
+            // 
             // StatsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Minesweeper.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1179, 573);
+            this.ClientSize = new System.Drawing.Size(1180, 608);
+            this.Controls.Add(this.lblStatsLocal);
             this.Controls.Add(this.pictureBoxSplitter);
             this.Controls.Add(this.pictureBoxGlobal);
             this.Controls.Add(this.pictureBoxLocal);
-            this.Controls.Add(this.btnCloseApp);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "StatsForm";
             this.ShowInTaskbar = false;
-            this.Text = "StatsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Statistics";
             this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGlobal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSplitter)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnCloseApp;
         private System.Windows.Forms.PictureBox pictureBoxLocal;
         private System.Windows.Forms.PictureBox pictureBoxGlobal;
         private System.Windows.Forms.PictureBox pictureBoxSplitter;
+        private System.Windows.Forms.Label lblStatsLocal;
     }
 }

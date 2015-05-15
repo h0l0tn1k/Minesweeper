@@ -36,6 +36,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.txtBoxUserName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuLayout1 = new Minesweeper.MenuLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoldCoinSack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -119,6 +121,31 @@
             this.pictureBox6.TabIndex = 11;
             this.pictureBox6.TabStop = false;
             // 
+            // txtBoxUserName
+            // 
+            this.txtBoxUserName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.txtBoxUserName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtBoxUserName.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxUserName.Font = new System.Drawing.Font("Eras Bold ITC", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUserName.Location = new System.Drawing.Point(506, 527);
+            this.txtBoxUserName.MaxLength = 40;
+            this.txtBoxUserName.Name = "txtBoxUserName";
+            this.txtBoxUserName.Size = new System.Drawing.Size(167, 25);
+            this.txtBoxUserName.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Eras Bold ITC", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label1.Location = new System.Drawing.Point(369, 527);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 24);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Username:";
+            // 
             // menuLayout1
             // 
             this.menuLayout1.BackColor = System.Drawing.Color.Transparent;
@@ -132,6 +159,8 @@
             this.BackgroundImage = global::Minesweeper.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1184, 612);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBoxUserName);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBoxGoldCoinSack);
@@ -150,6 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -162,6 +192,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox txtBoxUserName;
+        private System.Windows.Forms.Label label1;
 
     }
 }

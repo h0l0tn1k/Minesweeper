@@ -10,9 +10,13 @@ namespace Minesweeper
     {
         public int Life { get; set; }
         public int Coins { get; set; }
-
-        public Player(int life)
+        public int Score { get; set; }
+        public string Username { get; set; }
+        public int Level { get; set; }
+        public Player(string username,int life)
         {
+            Level = 1;
+            Username = username;
             Life = life;
         }
     }
