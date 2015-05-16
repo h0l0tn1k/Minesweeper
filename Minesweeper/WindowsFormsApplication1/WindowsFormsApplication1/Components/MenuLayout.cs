@@ -13,6 +13,9 @@ namespace Minesweeper
     public partial class MenuLayout : UserControl
     {
            
+        /// <summary>
+        /// Main screen menu layout
+        /// </summary>
         public MenuLayout()
         {
             InitializeComponent();
@@ -24,8 +27,17 @@ namespace Minesweeper
             btnStats.FlatAppearance.MouseDownBackColor = Color.Transparent;
         }
 
+        /// <summary>
+        /// New game button
+        /// </summary>
         public Button NewGame { get { return btnNewGame; } set { NewGame = value; } }
+        /// <summary>
+        /// Stats button
+        /// </summary>
         public Button Stats { get { return btnStats; } set { btnStats = value; } }
+        /// <summary>
+        /// Exit button
+        /// </summary>
         public Button Exit { get { return btnExit; } set { btnExit = value; } }
     }
 }

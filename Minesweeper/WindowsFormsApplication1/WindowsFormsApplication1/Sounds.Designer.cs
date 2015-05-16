@@ -81,6 +81,15 @@ namespace Minesweeper {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream finish {
+            get {
+                return ResourceManager.GetStream("finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Gran_Turismo___PSP___Freeland___Do_You {
             get {
                 return ResourceManager.GetStream("Gran_Turismo___PSP___Freeland___Do_You", resourceCulture);

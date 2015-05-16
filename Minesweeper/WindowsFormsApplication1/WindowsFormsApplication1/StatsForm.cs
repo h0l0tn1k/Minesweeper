@@ -1,38 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Minesweeper
 {
+
+    /// <summary>
+    /// Stats form
+    /// </summary>
     public partial class StatsForm : Form
     {
-        private static Rectangle UserScreen = Screen.PrimaryScreen.Bounds;
-        private Form parent;
-        public StatsForm(Form parent)
-            :base()
+        /// <summary>
+        /// Data about players
+        /// </summary>
+        private List<PlayersData> data;
+        /// <summary>
+        /// Parent window to show after closing
+        /// </summary>
+        public MainScreen ParentWindow;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="database">players data</param>
+        public StatsForm(List<PlayersData> database)
         {
             InitializeComponent();
-            btnCloseApp.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            btnCloseApp.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnCloseApp.Location = new Point(UserScreen.Width - btnCloseApp.Width - 5, 0);
-            pictureBoxLocal.Location = new Point(((UserScreen.Width/2)-pictureBoxLocal.Width)/2,100);
-            pictureBoxGlobal.Location = new Point(UserScreen.Width/2 + ((UserScreen.Width/2) - pictureBoxGlobal.Width)/2, 100);
-            pictureBoxSplitter.Location = new Point((UserScreen.Width/2)-pictureBoxSplitter.Width,100);
-            pictureBoxSplitter.Size = new Size(100,UserScreen.Height - 300);
-            this.parent = parent;
+            lblStatsLocal.ForeColor = Color.White;
+            data = database;
+
+            ///GET TOP TEN PLAYERS
+            IEnumerable<PlayersData> topTen = data.Take<PlayersData>(10);
+            foreach (PlayersData item in topTen)
+            {
+                lblStatsLocal.Text += item.ToString() + "\n";
+            }
+            lblStatsLocal.Text.TrimEnd('\n');
         }
 
-        private void CloseStatsForm(object sender, EventArgs e)
+        /// <summary>
+        /// On closing show parent
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnClosing(CancelEventArgs e)
         {
-            this.Close();
-            parent.Show();
+            base.OnClosing(e);
+            ///Show parent Main Window
+            ParentWindow.Show();
         }
 
+        /// <summary>
+        /// Exit form if esc or enter rpessed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exitForm(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Enter)
+                this.Close();
+        }
     }
 }
