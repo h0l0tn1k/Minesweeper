@@ -1,2 +1,2 @@
 language: csharp
-solution: WindowsFormsApplication1\MineSweeper.sln
+solution: WindowsFormsApplication1/MineSweeper.sln
