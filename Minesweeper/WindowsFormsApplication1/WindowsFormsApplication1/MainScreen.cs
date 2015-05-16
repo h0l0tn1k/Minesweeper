@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+<<<<<<< HEAD
 using System.Media;
+=======
+>>>>>>> origin/master
 
 
 namespace Minesweeper
@@ -17,17 +20,33 @@ namespace Minesweeper
         /// <summary>
         /// Levels array
         /// </summary>
+<<<<<<< HEAD
         private Level[] lvl = new Level[] { new Level1(), new Level2(), new Level3(), new Level4(), new Level5(), new Level6(),new Level7(),new Level8() ,new Level9(),new Level10()};
+=======
+        private Level[] lvl = new Level[] { new Level1(), new Level2(), new Level3(), new Level4(), new Level5(), new Level6() };
+>>>>>>> origin/master
         /// <summary>
         /// Current/Signed player
         /// </summary>
         private Player pl;
         /// <summary>
+<<<<<<< HEAD
+=======
+        /// Music player
+        /// </summary>
+        public System.Media.SoundPlayer Player;
+        /// <summary>
+>>>>>>> origin/master
         /// Loaded database of players
         /// </summary>
         private List<PlayersData> database;
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
         /// <summary>
         /// Main screen constructor
         /// </summary>
@@ -35,9 +54,18 @@ namespace Minesweeper
         {
             InitializeComponent();
             setButtons();
+<<<<<<< HEAD
             database = new List<PlayersData>();
             connectDb();
 
+=======
+            Player = new System.Media.SoundPlayer(Sounds.Gran_Turismo___PSP___Freeland___Do_You);
+            Player.Play();
+            database = new List<PlayersData>();
+            connectDb();
+
+
+>>>>>>> origin/master
             if(database.Count > 0)
             {
                 foreach (PlayersData item in database)
@@ -45,7 +73,10 @@ namespace Minesweeper
                     txtBoxUserName.AutoCompleteCustomSource.Add(item.Username);
 	            }
             }
+<<<<<<< HEAD
             this.AcceptButton = menuLayout1.NewGame;
+=======
+>>>>>>> origin/master
         }
 
         /// <summary>
@@ -131,6 +162,7 @@ namespace Minesweeper
         {
             if (string.IsNullOrWhiteSpace(txtBoxUserName.Text))
             {
+<<<<<<< HEAD
                 CustomMessageBox mbox = new CustomMessageBox();
                 mbox.Label1 = "Select username";
                 mbox.Label2 = "at the bottom of the screen!";
@@ -139,6 +171,12 @@ namespace Minesweeper
                 txtBoxUserName.Text = "";
                 Invalidate();
                 mbox.ShowDialog();
+=======
+                MessageBox.Show("Select username at the bottom of the screen!");
+                label1.ForeColor = Color.Red;
+                txtBoxUserName.Text = "";
+                Invalidate();
+>>>>>>> origin/master
                 return;
             }
             else {
@@ -154,6 +192,7 @@ namespace Minesweeper
         /// <param name="i">Level Number</param>
         private void startGame(int i)
         {
+<<<<<<< HEAD
             if (i == 10)
             {
                 SoundPlayer music = new SoundPlayer(Sounds.finish);
@@ -170,10 +209,17 @@ namespace Minesweeper
             ///Parent initialization
             game.ParentWindow = this;
             ///Delegates Initialization
+=======
+            Gameplay game = new Gameplay(lvl[i].Map, lvl[i].Width, lvl[i].Height, ref pl,i);
+            ///Delegates Initialization
+            ///Parent initialization
+            game.ParentWindow = this;
+>>>>>>> origin/master
             game.NextLevel = new Finishgame(startGame);
             game.QuitGame = new Finishgame(playerDead);
 
             this.Hide();
+            Player.Stop();
             game.Show();
         }
 
@@ -204,7 +250,11 @@ namespace Minesweeper
                 //update his data
                 if (pl.Score > tmp.Score) { 
                     tmp.Score = pl.Score;
+<<<<<<< HEAD
                     tmp.MaxLevel = pl.Level+1;
+=======
+                    tmp.MaxLevel = pl.Level;
+>>>>>>> origin/master
                     try
                     {
                         TextFileLogStorage st = new TextFileLogStorage(pathToDatabase);
@@ -228,7 +278,11 @@ namespace Minesweeper
                     PlayersData p = new PlayersData();
                     p.Score = pl.Score;
                     p.Username = pl.Username;
+<<<<<<< HEAD
                     p.MaxLevel = pl.Level+1;
+=======
+                    p.MaxLevel = pl.Level;
+>>>>>>> origin/master
                     database.Add(p);
                     data.Export(database);
                     sortData();

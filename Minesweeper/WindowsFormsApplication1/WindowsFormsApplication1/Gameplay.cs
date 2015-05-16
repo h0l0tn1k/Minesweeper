@@ -23,7 +23,10 @@ namespace Minesweeper
     /// </summary>
     public partial class Gameplay : Form
     {
+<<<<<<< HEAD
         private bool foo = false;
+=======
+>>>>>>> origin/master
         /// <summary>
         /// Delegate for a function that gives another level
         /// </summary>
@@ -91,7 +94,10 @@ namespace Minesweeper
         /// </summary>
         public BattleField Battlefield { get { return battlefield; }}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
         /// <summary>
         /// Constructor
         /// Initializes Images
@@ -115,11 +121,18 @@ namespace Minesweeper
             Images[(int)Field.Empty] = Pictures.empteyyy;
             Images[(int)Field.Gold] = Pictures.coin;
             Images[(int)Field.Flag] = Pictures.flag;
+<<<<<<< HEAD
 
             battlefield = new BattleField(width,height, field);
             numbersBomb = new int[height,width];
             visitedRectangles = new bool[height, width];
             visitedRectangles.Initialize();
+=======
+            
+            battlefield = new BattleField(width,height, field);
+            numbersBomb = new int[height,width];
+            visitedRectangles = new bool[height,width];
+>>>>>>> origin/master
             timer = new Stopwatch();
             tim = new System.Windows.Forms.Timer();
             flags = new List<Point>();
@@ -156,8 +169,14 @@ namespace Minesweeper
                 CustomMessageBox mbox = new CustomMessageBox();
                 mbox.BackColor = Color.Red;
                 mbox.Label1 = "Your are dead!";
+<<<<<<< HEAD
                 mbox.Label2 = "Total score: " + battlefield.Player.Score + "\n\nGood luck next time.";
                 mbox.ShowDialog();
+=======
+                mbox.Label2 = "Total score: " + battlefield.Player.Score;
+                mbox.ShowDialog();
+                ParentWindow.Player.PlayLooping();
+>>>>>>> origin/master
                 QuitGame(0);
                 this.Close();
                 return;
@@ -167,6 +186,7 @@ namespace Minesweeper
                 tim.Tick -= resolver_Tick;
                 ///bonus for time
                 
+<<<<<<< HEAD
 
                 battlefield.Player.Score += (int)Math.Max(0, 180 - (timer.ElapsedMilliseconds / 1000));
                 CustomMessageBox mbox = new CustomMessageBox();
@@ -174,6 +194,15 @@ namespace Minesweeper
                 mbox.Label2 = "Elapsed time: " + timer.Elapsed.ToString("mm\\:ss");
                 mbox.Label3 = "Time bonus: " + (int)Math.Max(0, 180 - (timer.ElapsedMilliseconds / 1000)) + "\nTotal score: " + battlefield.Player.Score;
                 mbox.ShowDialog();
+=======
+                battlefield.Player.Score += (int)Math.Max(0, 60 - (timer.ElapsedMilliseconds / 1000));
+                CustomMessageBox mbox = new CustomMessageBox();
+                mbox.Label1 = "You won!!";
+                mbox.Label2 = "Elapsed time: " + timer.Elapsed.ToString("mm\\:ss");
+                mbox.Label3 = "Time bonus: " + (int)Math.Max(0, 60 - (timer.ElapsedMilliseconds / 1000)) + "\nTotal score: " + battlefield.Player.Score;
+                mbox.ShowDialog();
+                //MessageBox.Show("You WON!!\n" + "Elapsed time: " + timer.Elapsed.ToString("mm\\:ss") + "\nTime bonus: " + (int)Math.Max(0, 60 - (timer.ElapsedMilliseconds / 1000)) + "\nTotal score: " + battlefield.Player.Score);
+>>>>>>> origin/master
                 this.Close();
                 NextLevel(++level);
             }
@@ -323,7 +352,11 @@ namespace Minesweeper
                 e.Graphics.DrawString("Coins: " + battlefield.Player.Coins, new Font(FontFamily.GenericSansSerif, 15), Brushes.Gray, new Point(30, 130));
                 e.Graphics.DrawString("Bombs: " + (Math.Max(0, bombsCount)).ToString(), new Font(FontFamily.GenericSansSerif, 15), Brushes.Gray, new Point(30, 160));
                 e.Graphics.DrawString("Score: " + (battlefield.Player.Score).ToString(), new Font(FontFamily.GenericSansSerif, 15), Brushes.Gray, new Point(30, 220));
+<<<<<<< HEAD
                 e.Graphics.DrawImage(Pictures.battlefield , 157, 37, 550, 550);
+=======
+                e.Graphics.DrawImage(Pictures.battlefield, 157, 37, 550, 550);
+>>>>>>> origin/master
             }));
 
             ///Draw first half on other thread 
@@ -333,6 +366,7 @@ namespace Minesweeper
                     for (int x = 0; x < battlefield.Width; x++)
                     {
                         Point p = new Point(221 + x * 43, 93 + y * 43);
+<<<<<<< HEAD
 
                         if (visitedRectangles[y, x] && numbersBomb[y, x] > 0 && battlefield.Field[y, x] != Field.Gold && battlefield.Field[y, x] != Field.Hearth && battlefield.Field[y, x] != Field.Finish
                             && battlefield.Field[y, x] != Field.Stone)
@@ -342,6 +376,17 @@ namespace Minesweeper
                             continue;
                         }
 
+=======
+
+                        if (visitedRectangles[y, x] && numbersBomb[y, x] > 0 && battlefield.Field[y, x] != Field.Gold && battlefield.Field[y, x] != Field.Hearth && battlefield.Field[y, x] != Field.Finish
+                            && battlefield.Field[y, x] != Field.Stone)
+                        {
+                            ///Draw Numbers
+                            e.Graphics.DrawString(numbersBomb[y, x].ToString(), new Font(FontFamily.GenericSansSerif, 20), Brushes.Black, new Point(p.X + 10, p.Y + 8));
+                            continue;
+                        }
+
+>>>>>>> origin/master
                         ///if flaged, draw flag
                         if (flags.Contains(new Point(x, y)))
                         {
@@ -352,11 +397,18 @@ namespace Minesweeper
                             if (hidden.Any(z => z == battlefield.Field[y, x]) && !visitedRectangles[y, x])
                             {
                                 /// cover
+<<<<<<< HEAD
                                 if(!foo)
                                     e.Graphics.DrawImage(Images[(int)Field.Nothing], p.X, p.Y, 43, 43);
                                 else
                                 ///DEBUG
                                 e.Graphics.DrawImage(Images[(int)battlefield.Field[y, x]],p.X,p.Y, 43, 43);
+=======
+                                e.Graphics.DrawImage(Images[(int)Field.Nothing], p.X, p.Y, 43, 43);
+
+                                ///DEBUG
+                                //e.Graphics.DrawImage(Images[(int)battlefield.Field[y, x]],p.X,p.Y, 43, 43);
+>>>>>>> origin/master
                             }
                             else
                             {
@@ -400,8 +452,12 @@ namespace Minesweeper
                             e.Graphics.DrawImage(Images[(int)Field.Nothing], p.X, p.Y, 43, 43);
 
                             ///DEBUG
+<<<<<<< HEAD
                             else
                             e.Graphics.DrawImage(Images[(int)battlefield.Field[y, x]], p.X, p.Y, 43, 43);
+=======
+                            //e.Graphics.DrawImage(Images[(int)battlefield.Field[y, x]], p.X, p.Y, 43, 43);
+>>>>>>> origin/master
                         }
                         else
                         {

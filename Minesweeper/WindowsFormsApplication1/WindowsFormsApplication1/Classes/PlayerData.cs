@@ -41,12 +41,16 @@ namespace Minesweeper
         /// <returns></returns>
         public override string ToString()
         {
+<<<<<<< HEAD
             string s = Username;
             if (Username.Length > 12)
             {
                 s = Username.Substring(0, 8) + "...";
             }
             return string.Format("{0}. {1}, Score: {2} Level: {3}", Position,s, Score, MaxLevel);
+=======
+            return string.Format("{0}. {1}, Score: {2} Level: {3}", Position, Username, Score, MaxLevel);
+>>>>>>> origin/master
         }
     }
 }

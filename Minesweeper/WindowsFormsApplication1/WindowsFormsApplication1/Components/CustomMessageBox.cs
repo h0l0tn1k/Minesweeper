@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Minesweeper
 {
+<<<<<<< HEAD
     /// <summary>
     /// Custme message box
     /// </summary>
@@ -32,21 +33,32 @@ namespace Minesweeper
         /// <summary>
         /// Constructor
         /// </summary>
+=======
+    public partial class CustomMessageBox : Form
+    {
+        public string Label1 {set { label1.Text = value; } }
+        public string Label2 { set { label2.Text = value; } }
+        public string Label3 { set { label3.Text = value; } }
+>>>>>>> origin/master
         public CustomMessageBox()
         {
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// Closes dialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+=======
+>>>>>>> origin/master
         private void CloseMBox(object sender, EventArgs e)
         {
             this.Close();
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// If escape or enter pressed => closes dialog box
         /// </summary>
@@ -60,5 +72,7 @@ namespace Minesweeper
             }
         }
 
+=======
+>>>>>>> origin/master
     }
 }

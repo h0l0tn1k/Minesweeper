@@ -100,12 +100,15 @@
     <Compile Include="Components\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Components\WinningWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Components\WinningWindow.Designer.cs">
       <DependentUpon>WinningWindow.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> origin/master
     <Compile Include="Gameplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,9 +149,12 @@
     <EmbeddedResource Include="Components\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Components\WinningWindow.resx">
       <DependentUpon>WinningWindow.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> origin/master
     <EmbeddedResource Include="Gameplay.resx">
       <DependentUpon>Gameplay.cs</DependentUpon>
     </EmbeddedResource>

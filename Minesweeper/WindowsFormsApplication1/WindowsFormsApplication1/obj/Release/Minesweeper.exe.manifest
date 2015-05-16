@@ -42,6 +42,7 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+<<<<<<< HEAD
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="MySql.Data" version="6.9.5.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
@@ -49,12 +50,32 @@
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minesweeper.exe" size="43714984">
       <assemblyIdentity name="Minesweeper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minesweeper.exe" size="37786624">
+      <assemblyIdentity name="Minesweeper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Oya1g/GO9bF/8KxKbMLIf5acMmXqWv0ZHklU0c8k1tg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="217088">
+      <assemblyIdentity name="MySql.Data" version="1.0.10.0" publicKeyToken="C5687FC88969C44D" language="neutral" />
+>>>>>>> origin/master
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>yaXvUJpqLTN48QHpDK9L00lop2OplbussSOiX+2JtI4=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>B3kjcOW28duzA2j11HcPvMNkBn1pI10W6bvs7Oz7Y/s=</dsig:DigestValue>
+>>>>>>> origin/master
       </hash>
     </dependentAssembly>
   </dependency>
