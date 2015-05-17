@@ -1,2 +1,17 @@
 language: csharp
 solution: MineSweeper.sln
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "kSKXIypI+S+tIoz0QsbCiNLf0cXUXB2Bldgh7Fo//qKGj4eTKop0RaPYmbWDfu5G2j+gLLMWcwUA3CLTbmWt7aLTcqulrcwk3FTk8IEAPij3tmWc42e557LtqDcdU4VrnBwpc+3hM5m6hipaYwRyWPnTWFrzgjuCQSPf9WaQ/HMc2PCSd82lb6ug6wNjyfLEGS5VoFADAHK4/3i8ENvGtz1yuggkQaLRhcj19uh8njaC+rY7aoNVvdSP0sx5WC10K7SjpfM4277N/N0I7XTDBrjYXu+g4wF2nGoIxxO5P9fyTy9yNXW2Ja1wJc71638zh3ialbFFXVM4ungfWsqa4u5aBL74KxTSrUBmvwnv4Na0Rd9LJyDMG88aj7hbMxKOKgA8mYyHGp5MoUl4PHY97A3Nv8Z9s0KJoJsR68e6S8DYjP1NlcEHFQLPOfXcPeaKRwRTlatnx7XhwYTTgIcanzadpNSTV0pxQcB5Yxo8YPiH7TwDpDGQwavBuKCIJS5l9y2bZBvPINOAYAhyPU0UvUzwRqlxsg5drGu+/ZQx3VevzOtLV/9Qb8Jx2pakAYZ/S6H68hiRYgiMEnGxWNaQI5JRZFFyMYb0kbKTBY2tGPkTHUKktxD2+seRk/SCBBmJ6eqGEzrBVbu+2YtELFFJMsGl+9WrfFGCD1T5yFEmBso="
+
+addons:
+  coverity_scan:
+    project:
+      name: "h0l0tn1k/Minesweeper"
+      description: "Build submitted via Travis CI"
+    notification_email: 422255@mail.muni.cz
+    build_command_prepend: "msbuild /t:Clean"
+    build_command:   "msbuild /t:Rebuild"
+    branch_pattern: coverity_scan
