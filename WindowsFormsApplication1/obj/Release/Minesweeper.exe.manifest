@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="Minesweeper.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="en" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="1230571109126653456rg1024_cartoon_sea_mine.svg.med.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Minesweeper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -42,43 +43,31 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-<<<<<<< HEAD
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="MySql.Data" version="6.9.5.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minesweeper.exe" size="43714984">
-      <assemblyIdentity name="Minesweeper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-=======
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minesweeper.exe" size="37786624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Minesweeper.exe" size="43925416">
       <assemblyIdentity name="Minesweeper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Oya1g/GO9bF/8KxKbMLIf5acMmXqWv0ZHklU0c8k1tg=</dsig:DigestValue>
+        <dsig:DigestValue>imlNPDakVTKt/uh4Rxr8TeGYgKKls5oBE09tH8v5Sro=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="217088">
-      <assemblyIdentity name="MySql.Data" version="1.0.10.0" publicKeyToken="C5687FC88969C44D" language="neutral" />
->>>>>>> origin/master
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>yaXvUJpqLTN48QHpDK9L00lop2OplbussSOiX+2JtI4=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>B3kjcOW28duzA2j11HcPvMNkBn1pI10W6bvs7Oz7Y/s=</dsig:DigestValue>
->>>>>>> origin/master
-      </hash>
-    </dependentAssembly>
-  </dependency>
+  <file name="1230571109126653456rg1024_cartoon_sea_mine.svg.med.ico" size="99678">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BxhWaA+hPwtGXc1vx3yYeR52Xg9FIkmlNVzXLCcw7Mw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Minesweeper.exe.config" size="187">
     <hash>
       <dsig:Transforms>

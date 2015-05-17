@@ -1,0 +1,15 @@
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\.NETFramework,Version=v4.5.AssemblyAttribute.cs
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.CustomMessageBox.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.WinningWindow.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.Gameplay.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.MainScreen.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.MenuLayout.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.Pictures.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.Properties.Resources.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.Sounds.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.StatsForm.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Minesweeper.exe.config
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Minesweeper.exe.mdb
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Minesweeper.exe
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.exe
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\Minesweeper.exe.mdb

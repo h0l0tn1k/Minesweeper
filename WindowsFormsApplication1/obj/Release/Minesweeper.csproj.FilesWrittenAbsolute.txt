@@ -1,0 +1,15 @@
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\.NETFramework,Version=v4.5.AssemblyAttribute.cs
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.CustomMessageBox.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.WinningWindow.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.Gameplay.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.MainScreen.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.MenuLayout.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.Pictures.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.Properties.Resources.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.Sounds.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.StatsForm.resources
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\Minesweeper.exe.config
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\Minesweeper.exe.mdb
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\Minesweeper.exe
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.exe
+C:\Users\stefan\Desktop\stefanmatta-\Minesweeper\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\Minesweeper.exe.mdb

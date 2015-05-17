@@ -7,7 +7,6 @@ using System.Windows.Forms;
 namespace Minesweeper
 {
 
-<<<<<<< HEAD
     /// <summary>
     /// Stats form
     /// </summary>
@@ -25,12 +24,6 @@ namespace Minesweeper
         /// Constructor
         /// </summary>
         /// <param name="database">players data</param>
-=======
-    public partial class StatsForm : Form
-    {
-        private List<PlayersData> data;
-        public MainScreen ParentWindow;
->>>>>>> origin/master
         public StatsForm(List<PlayersData> database)
         {
             InitializeComponent();
@@ -46,20 +39,16 @@ namespace Minesweeper
             lblStatsLocal.Text.TrimEnd('\n');
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// On closing show parent
         /// </summary>
         /// <param name="e"></param>
-=======
->>>>>>> origin/master
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
             ///Show parent Main Window
             ParentWindow.Show();
         }
-<<<<<<< HEAD
 
         /// <summary>
         /// Exit form if esc or enter rpessed
@@ -71,7 +60,5 @@ namespace Minesweeper
             if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Enter)
                 this.Close();
         }
-=======
->>>>>>> origin/master
     }
 }

@@ -63,11 +63,16 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1230571109126653456rg1024_cartoon_sea_mine.svg.med.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
@@ -100,15 +105,12 @@
     <Compile Include="Components\CustomMessageBox.Designer.cs">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Components\WinningWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Components\WinningWindow.Designer.cs">
       <DependentUpon>WinningWindow.cs</DependentUpon>
     </Compile>
-=======
->>>>>>> origin/master
     <Compile Include="Gameplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,12 +151,9 @@
     <EmbeddedResource Include="Components\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Components\WinningWindow.resx">
       <DependentUpon>WinningWindow.cs</DependentUpon>
     </EmbeddedResource>
-=======
->>>>>>> origin/master
     <EmbeddedResource Include="Gameplay.resx">
       <DependentUpon>Gameplay.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +205,7 @@
     <None Include="Resources\Exit.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
     <None Include="Resources\winning.jpg" />
     <None Include="Resources\finish.wav" />
     <None Include="Resources\mediumBackground.png" />
@@ -236,6 +236,8 @@
     <None Include="Resources\brown.png" />
     <None Include="Resources\coin.wav" />
     <None Include="Resources\bomb.wav" />
+    <None Include="Resources\1230571109126653456rg1024_cartoon_sea_mine.svg.med.ico" />
+    <Content Include="1230571109126653456rg1024_cartoon_sea_mine.svg.med.ico" />
     <Content Include="Resources\ExitOnClick.png" />
     <None Include="Resources\Stats.png" />
     <None Include="Resources\NewGame.png" />

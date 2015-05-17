@@ -183,7 +183,6 @@ namespace Minesweeper
             };
         }
     }
-<<<<<<< HEAD
     public class Level8 : Level
     {
         public Level8()
@@ -246,8 +245,6 @@ namespace Minesweeper
             };
         }
     }
-=======
->>>>>>> origin/master
 
 
 }

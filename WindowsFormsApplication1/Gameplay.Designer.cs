@@ -59,11 +59,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.BackgroundImage = global::Minesweeper.Pictures.medBackground;
-=======
-            this.BackgroundImage = global::Minesweeper.Properties.Resources.background;
->>>>>>> origin/master
             this.ClientSize = new System.Drawing.Size(884, 612);
             this.Controls.Add(this.lblLevelNumber);
             this.Controls.Add(this.lblTime);
